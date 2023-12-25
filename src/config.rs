@@ -4,5 +4,5 @@ pub struct Config {
     pub database_url: String,
 
     #[clap(long, env)]
-    pub hmac_key: String,
+    pub jwt_secret: String,
 }

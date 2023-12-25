@@ -1,6 +1,6 @@
 use anyhow::Context;
 use clap::Parser;
-use posts_axum::config::{self, Config};
+use posts_axum::config::Config;
 use sqlx::postgres::PgPoolOptions;
 
 mod http;
