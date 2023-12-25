@@ -43,7 +43,7 @@ impl AuthUser {
         .expect("JWT encoding should be infallible")
     }
 
-    fn from_authorization(ctx: &ApiContext, auth_header: Bearer) -> Result<Self, Error> {
+    fn from_jwt(ctx: &ApiContext, auth_header: Bearer) -> Result<Self, Error> {
         let token = auth_header.token();
 
         let validation = Validation::new(Algorithm::HS384);
@@ -89,7 +89,7 @@ where
 
         let bearer = extract_bearer(parts, state).await?;
 
-        Self::from_authorization(&ctx, bearer)
+        Self::from_jwt(&ctx, bearer)
     }
 }
 
@@ -108,7 +108,7 @@ where
 
         Ok(Self(
             maybe_bearer
-                .map(|bearer| AuthUser::from_authorization(&ctx, bearer))
+                .map(|bearer| AuthUser::from_jwt(&ctx, bearer))
                 .transpose()?,
         ))
     }
