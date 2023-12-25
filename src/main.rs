@@ -3,6 +3,8 @@ use clap::Parser;
 use posts_axum::config::{self, Config};
 use sqlx::postgres::PgPoolOptions;
 
+mod http;
+
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     dotenvy::dotenv().ok();

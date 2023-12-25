@@ -1229,7 +1229,10 @@ dependencies = [
  "clap",
  "dotenvy",
  "env_logger",
+ "log",
+ "serde",
  "sqlx",
+ "thiserror",
  "tokio",
 ]
 
