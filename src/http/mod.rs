@@ -1,5 +1,6 @@
 mod error;
 mod extractor;
+mod users;
 
 use std::{
     net::{IpAddr, Ipv4Addr, SocketAddr},
@@ -12,7 +13,7 @@ pub use error::{Error, ResultExt};
 
 pub type Result<T, E = Error> = std::result::Result<T, E>;
 
-use posts_axum::config::Config;
+use crate::config::Config;
 use sqlx::PgPool;
 use tokio::net::TcpListener;
 use tower_http::trace::TraceLayer;
@@ -41,6 +42,7 @@ pub async fn serve(config: Config, db: PgPool) -> anyhow::Result<()> {
 fn api_router(api_context: ApiContext) -> Router {
     Router::new()
         .route("/hello", get(|| async { "Hello" }))
+        .merge(users::router())
         .layer(TraceLayer::new_for_http())
         .with_state(api_context)
 }

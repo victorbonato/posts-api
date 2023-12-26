@@ -1,9 +1,7 @@
 use anyhow::Context;
 use clap::Parser;
-use posts_axum::config::Config;
+use posts_axum::{config::Config, http};
 use sqlx::postgres::PgPoolOptions;
-
-mod http;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -19,7 +17,7 @@ async fn main() -> anyhow::Result<()> {
         .await
         .context("could not connect to database")?;
 
-    // TODO: serve http
+    http::serve(config, db).await?;
 
     Ok(())
 }
