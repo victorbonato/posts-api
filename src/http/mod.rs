@@ -1,7 +1,6 @@
 mod error;
 mod extractor;
 mod posts;
-mod types;
 mod users;
 
 use std::{
