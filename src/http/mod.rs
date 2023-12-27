@@ -1,5 +1,7 @@
 mod error;
 mod extractor;
+mod posts;
+mod types;
 mod users;
 
 use std::{
@@ -43,6 +45,7 @@ fn api_router(api_context: ApiContext) -> Router {
     Router::new()
         .route("/hello", get(|| async { "Hello" }))
         .merge(users::router())
+        .merge(posts::router())
         .layer(TraceLayer::new_for_http())
         .with_state(api_context)
 }
