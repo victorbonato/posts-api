@@ -6,6 +6,9 @@ CREATE TABLE "user" (
     updated_at timestamptz
 );
 
+-- Call the 'trigger_updated_at' function to create a trigger for the "user" table
+-- This trigger will automatically update the 'updated_at' column to the current timestamp
+-- whenever a row in the "user" table is updated
 SELECT
     trigger_updated_at ('"user"');
 
