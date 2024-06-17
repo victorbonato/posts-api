@@ -36,10 +36,11 @@ This API, developed in Rust, offers a straightforward way to interact with posts
   - Body: `{ "user": { "username": "string", "password": "string" } }`
 
 - **Login User**
-  Important: You need to add the authentication token you receive to the headers of your http client, like this: `Authorization: Bearer {token_here}`
 
   - `POST /api/users/login`
   - Body: `{ "user": { "username": "string", "password": "string" } }`
+
+  Important: You need to add the authentication token you receive to the headers of your http client, like this: `Authorization: Bearer {token_here}`
 
 - **Get Current User**
 
