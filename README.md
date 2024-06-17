@@ -1,6 +1,6 @@
 # Posts API
 
-This API, developed in Rust, offers a straightforward way to interact with posts. It integrates Axum, JWT authentication via jsonwebtoken, a PostgreSQL database, and uses sqlx for database queries. Configuration is managed with `.env`, while logging is handled by tracing and log_env.
+This API, developed in Rust, offers a straightforward way to interact with posts. It integrates Axum, JWT authentication via jsonwebtoken, a PostgreSQL database, and uses sqlx for database queries. Configuration is managed with .env, while logging is handled by tracing and log_env. Additionally, Argon2 is used for secure password hashing.
 
 ## Get Started
 
