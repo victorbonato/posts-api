@@ -10,22 +10,16 @@ This API, developed in Rust, offers a straightforward way to interact with posts
    git clone github.com/victorbonato/posts-api && cd posts-api
    ```
 
-2. Start PostgreSQL
-
-   ```bash
-   make postgres
-   ```
-
-3. Run Migrations
-
-   ```bash
-   make migrate
-   ```
-
-4. Launch the Application
+2. Simply run the application; it will be accessible at `localhost:3000`
 
    ```bash
    make run
+   ```
+
+3. (Optional) Clean up everything after you're done
+
+   ```bash
+    make clean
    ```
 
 ## User API Routes
